@@ -1,0 +1,9 @@
+[github]
+	user = rkj
+[user]
+	name = Roman Kamyk
+	email = roman.kamyk@gmail.com
+[alias]
+	ci = commit
+	st = status
+
