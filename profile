@@ -8,7 +8,7 @@ function mhg() {
 	for d in `find . -mindepth 2 -depth -name .hg` `pwd`/.hg; do 
 		repo=`dirname "$d"`
 		echo -e "\033[31m$repo\033[0m"
-		cd $repo && $*
+		(cd $repo && hg $*)
 	done
 }
 
