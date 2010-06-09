@@ -6,6 +6,7 @@ require 'strscan'
 
 UNITS = { "h" => 3600, "m" => 60, "s" => 1}
 def time_to_str(seconds)
+  return "0" if seconds == 0
   str = seconds >= 0 ? "+" : "-"
   seconds = seconds.abs
   UNITS.to_a.sort_by { |e| e[1] }.reverse.each do |name, amount|
