@@ -1,61 +1,85 @@
 #!/usr/bin/env ruby
 
-require 'date'
-require 'time'
+# No rubygems for faster loading
+# require 'rubygems'
+require 'optparse'
 require 'strscan'
+require 'date'
 
-UNITS = { "h" => 3600, "m" => 60, "s" => 1}
-def time_to_str(seconds)
-  return "0" if seconds == 0
-  str = seconds >= 0 ? "+" : "-"
-  seconds = seconds.abs
-  UNITS.to_a.sort_by { |e| e[1] }.reverse.each do |name, amount|
-    c = (seconds / amount).floor
-    next unless c > 0
-    str << "#{c}#{name}" 
-    seconds -= c * amount 
+TIME_UNITS = { "h" => 3600, "m" => 60, "s" => 1}
+class Duration
+  def initialize(seconds = 0)
+    @seconds = seconds
   end
-  str
+  
+  def +(other)
+    @seconds += other.to_i
+    self
+  end
+  
+  def -(other)
+    @seconds -= other.to_i
+    self
+  end
+  
+  def to_i
+    @seconds
+  end
+  
+  def to_s
+    return "0" if @seconds == 0
+    TIME_UNITS.to_a.sort_by { |e| -e[1] }.inject([@seconds >= 0 ? "+" : "-", @seconds.abs]) do |sum, cur|
+      str, seconds = *sum
+      name, amount = *cur
+      c = (seconds / amount).floor
+      sum unless c > 0
+      ["#{str}#{c}#{name}", seconds - c * amount]
+    end.first
+  end
 end
 
-def parse_time(str)
-  s = StringScanner.new(str)
-  sign = s.scan /(\+|-)/
-  time = 0
-  until s.eos?
-    s.scan /(\d+)(\.\d+)?([hms])/
-    time += "#{s[1]}#{s[2]}".to_f * UNITS[s[3]]
+class String
+  def to_duration()
+    s = StringScanner.new(self)
+    sign = s.scan /(\+|-)/
+    time = 0
+    until s.eos?
+      s.scan /(\d+)(\.\d+)?([hms])/
+      time += "#{s[1]}#{s[2]}".to_f * TIME_UNITS[s[3]]
+    end
+    time *= -1 if sign == "-"
+    Duration.new time
+  rescue
+    nil
   end
-  time *= -1 if sign == "-"
-  time
-rescue
-  nil
 end
 
-# %w(+1h -2h +1.5h -0.5h +1h30m -30m).each do |t|
-#   x = parse_time(t) || raise
-#   p x
-# end
+@opts = {:path => ENV['WORKLOG_PATH'] || "#{ENV["HOME"]}/.work_log.txt"}
+OptionParser.new do |opts|
+  opts.banner = "Usage: timelog.rb [options]"
 
-path = ENV['WORKLOG_PATH'] || "#{ENV["HOME"]}/.work_log.txt"
-%x{touch #{path}}
-if ARGV.size > 0 && ARGV[0] =~ /(\+?|-)\d+/
-  t = parse_time(ARGV[0]) 
+  opts.on("-p", "--path PATH", String, "Path to data file") { |p| @opts[:path] = p }
+  opts.on("-r", "--rate RATE", Integer, "Rate per hour") { |r| @opts[:rate] = r }
+  opts.on("-v", "--[no-]verbose", "Run verbosely") { |v| @opts[:verbose] = v }
+end.parse!
+
+if ARGV.size > 0 && ARGV[0] =~ /^(\+?|-)\d+/
+  t = ARGV[0].to_duration
   raise Exception, "Unable to parse #{ARGV[0]}" if t.nil?
-  File.open(path, "a+") { |f| f.puts "#{Date.today.to_s} #{time_to_str(t)} #{ARGV[1..-1].join(" ")}"}
+  File.open(@opts[:path], "a+") { |f| f.puts "#{Date.today.to_s} #{t.to_s} #{ARGV[1..-1].join(" ")}"}
 end
-verbose = ARGV.size > 0 && ARGV.include?("-v")
-sum = 0
+
+sum = Duration.new
 disp = []
-IO.foreach(path) do |line|
+IO.foreach(@opts[:path]) do |line|
   date, time, comment = line.split(/\s/, 3)
-  t = parse_time(time)
+  t = time.to_duration
   sum += t
-  disp << [time_to_str(sum), time_to_str(t), date, comment.strip] if verbose
+  disp << [sum.to_s, t.to_s, date, comment.strip]
 end
-if verbose
-  cw = disp.map { |t| t[0, 3].map { |v| v.length} }.flatten.max + 1
-  lw = disp.map { |d| d[3].length }.max + 1
+if @opts[:verbose]
+  cw = disp.map { |t| t[0, 3].map { |v| v.length} }.flatten.max + 1 rescue 1
+  lw = disp.map { |d| d[3].length }.max + 1 rescue 1
   disp.each do |line|
     line[1, 2].each { |c| print c; print " " * (cw - c.length)}
     print line[3]
@@ -63,5 +87,8 @@ if verbose
     puts line[0]
   end
 else
-  puts time_to_str(sum)
+  puts sum
+end
+if @opts[:rate]
+  puts sum.to_i * @opts[:rate] / TIME_UNITS["h"]
 end
