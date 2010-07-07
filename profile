@@ -5,7 +5,7 @@ alias lzma='lzma -vk'
 alias git=hub
 
 function mhg() {
-  for d in `find . -mindepth 2 -depth -name .hg` `pwd`/.hg; do 
+  for d in `find . -mindepth 2 -depth -name .hg | sort` `pwd`/.hg; do 
     repo=`dirname "$d"`
     echo -e "\033[31m$repo\033[0m"
     (cd $repo && hg $*)
