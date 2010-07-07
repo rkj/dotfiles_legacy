@@ -54,19 +54,20 @@ class String
   end
 end
 
-@opts = {:path => ENV['WORKLOG_PATH'] || "#{ENV["HOME"]}/.work_log.txt"}
+@opts = {:path => ENV['WORKLOG_PATH'] || "#{ENV["HOME"]}/.work_log.txt", :date => Date.today}
 OptionParser.new do |opts|
   opts.banner = "Usage: timelog.rb [options]"
 
   opts.on("-p", "--path PATH", String, "Path to data file") { |p| @opts[:path] = p }
   opts.on("-r", "--rate RATE", Integer, "Rate per hour") { |r| @opts[:rate] = r }
+  opts.on("-d", "--date DATE", String, "Date to log time in %Y-%m-%d format") { |d| @opts[:date] = Date.parse(d, "%Y-%m-%d") }
   opts.on("-v", "--[no-]verbose", "Run verbosely") { |v| @opts[:verbose] = v }
 end.parse!
 
 if ARGV.size > 0 && ARGV[0] =~ /^(\+?|-)\d+/
   t = ARGV[0].to_duration
   raise Exception, "Unable to parse #{ARGV[0]}" if t.nil?
-  File.open(@opts[:path], "a+") { |f| f.puts "#{Date.today.to_s} #{t.to_s} #{ARGV[1..-1].join(" ")}"}
+  File.open(@opts[:path], "a+") { |f| f.puts "#{@opts[:date].to_s} #{t.to_s} #{ARGV[1..-1].join(" ")}"}
 end
 
 sum = Duration.new
