@@ -61,6 +61,7 @@ OptionParser.new do |opts|
   opts.on("-p", "--path PATH", String, "Path to data file") { |p| @opts[:path] = p }
   opts.on("-r", "--rate RATE", Integer, "Rate per hour") { |r| @opts[:rate] = r }
   opts.on("-d", "--date DATE", String, "Date to log time in %Y-%m-%d format") { |d| @opts[:date] = Date.parse(d, "%Y-%m-%d") }
+  opts.on("-e", "--edit") { `$EDITOR #{@opts[:path]}`; exit(0) }
   opts.on("-v", "--[no-]verbose", "Run verbosely") { |v| @opts[:verbose] = v }
 end.parse!
 
