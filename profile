@@ -1,4 +1,28 @@
 
+export HISTFILESIZE=10000
+export HISTCONTROL=ignoredups
+export PATH=$PATH:~/.scripts/:~/bin
+
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_COLLATE=pl_PL.UTF-8
+export JAVA_OPTS="-Dfile.encoding=utf8"
+
+alias mv='mv -i'
+alias cp='cp -i'
+alias duu='du -s * .[^.]* 2>/dev/null | sort -n'
+alias bc='bc -l ~/.bc'
+alias port='sudo port'
+alias git=hub
+alias pg="ps aux | grep "
+alias ka="killall -vm "
+
+alias -g ...='../..'
+alias -g ....='../../..'
+alias -g .....='../../../..'
+alias -g G='| egrep'
+alias -g H='| head'
+
 alias pg="ps aux | grep "
 alias 7z='7z -t7z -m0=lzma -mx=9 -mfb=64 -md=32m -ms=on'
 alias lzma='lzma -vk'
