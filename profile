@@ -1,12 +1,12 @@
 
 export HISTFILESIZE=10000
 export HISTCONTROL=ignoredups
-export PATH=$PATH:~/.scripts/:~/bin
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LC_COLLATE=pl_PL.UTF-8
 export JAVA_OPTS="-Dfile.encoding=utf8"
+export PATH=$HOME/misc/bin:$PATH
 
 alias mv='mv -i'
 alias cp='cp -i'
@@ -16,6 +16,7 @@ alias port='sudo port'
 alias git=hub
 alias pg="ps aux | grep "
 alias ka="killall -vm "
+alias sudo='sudo -E'
 
 alias -g ...='../..'
 alias -g ....='../../..'
