@@ -6,4 +6,6 @@
 [alias]
 	ci = commit
 	st = status
+[core]
+	excludesfile = ~/.gitignore
 

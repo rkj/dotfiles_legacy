@@ -74,8 +74,7 @@ nnoremap <leader>q gqip
 nnoremap <leader>v V`]
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 inoremap jj <ESC>
-inoremap <F1> <ESC>
-nnoremap <F1> <ESC>
+inoremap <F1> <ESC> nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 nnoremap <F2> :NERDTree .<CR>
 
@@ -86,4 +85,12 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+autocmd FocusLost * :wa
+
+"YankRing
+nnoremap <silent> <F3> :YRShow<cr>
+inoremap <silent> <F3> <ESC>:YRShow<cr>
+
+nnoremap <leader>u :undolist<cr>
 

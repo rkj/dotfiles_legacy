@@ -31,9 +31,9 @@ alias git=hub
 
 function mhg() {
   for d in `find . -mindepth 2 -depth -name .hg | sort` `pwd`/.hg; do 
-    repo=`dirname "$d"`
+    mhgrepo=`dirname "$d"`
     echo -e "\033[31m$repo\033[0m"
-    (cd $repo && hg $*)
+    (cd $mhgrepo && hg $*)
   done
 }
 
