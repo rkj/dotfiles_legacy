@@ -1,6 +1,6 @@
 filetype off
-call pathogen#helptags()
 call pathogen#runtime_append_all_bundles() 
+call pathogen#helptags()
 filetype plugin indent on
 
 set nocompatible
@@ -79,8 +79,8 @@ vnoremap <F1> <ESC>
 nnoremap <F2> :NERDTree .<CR>
 
 " multiple buffers
-nnoremap <leader>w <C-w>v<C-w>l
-nnoremap <leader>ww <C-w>s<C-w>l
+nnoremap <leader>ww <C-w>v<C-w>l
+nnoremap <leader>w <C-w>s<C-w>l
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -91,6 +91,7 @@ autocmd FocusLost * :wa
 "YankRing
 nnoremap <silent> <F3> :YRShow<cr>
 inoremap <silent> <F3> <ESC>:YRShow<cr>
+let g:yankring_history_dir = '$HOME/.vim'
 
 nnoremap <leader>u :undolist<cr>
 
