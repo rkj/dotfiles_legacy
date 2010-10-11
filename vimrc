@@ -1,5 +1,5 @@
 filetype off
-call pathogen#runtime_append_all_bundles() 
+call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 filetype plugin indent on
 
@@ -17,10 +17,11 @@ set relativenumber
 set undofile
 set backspace=indent,eol,start
 set whichwrap=b,s,h,l,<,>,[,]
+:set autowrite "before :make
 
 set autoindent
 set smartindent
-set smarttab 
+set smarttab
 set expandtab
 set tabstop=2
 set shiftwidth=2
@@ -65,17 +66,24 @@ nnoremap k gk
 set list
 set listchars=tab:▸\ ,eol:¬
 
-" misc
 nnoremap ; :
+"remove trailing whitespace
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
-nnoremap <leader>a :Ack 
+nnoremap <leader>a :Ack
+" select last paste
 nnoremap <leader>ft Vatzf
+" format paragraph
 nnoremap <leader>q gqip
+" ? :-)
 nnoremap <leader>v V`]
+" edit VIMRC
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 inoremap jj <ESC>
-inoremap <F1> <ESC> nnoremap <F1> <ESC>
+" F1 -> ESC
+inoremap <F1> <ESC>
+nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
+
 nnoremap <F2> :NERDTree .<CR>
 
 " multiple buffers
@@ -93,5 +101,17 @@ nnoremap <silent> <F3> :YRShow<cr>
 inoremap <silent> <F3> <ESC>:YRShow<cr>
 let g:yankring_history_dir = '$HOME/.vim'
 
+" paste system clipboard
+nnoremap <leader>p "+gP
+
+nnoremap <silent> <F6> :make<cr>
+inoremap <silent> <F6> <ESC>:make<cr>
+
+" Undo
 nnoremap <leader>u :undolist<cr>
+nnoremap <F5> :GundoToggle<CR>
+inoremap <F5> :GundoToggle<CR>
+
+" ctags
+nnoremap <leader>g :tag
 
