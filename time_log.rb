@@ -73,7 +73,12 @@ end
 
 sum = Duration.new
 disp = []
+payments = []
 IO.foreach(@opts[:path]) do |line|
+  if line =~ /^-/
+    payments << line.split(/\s/, 2)
+    next
+  end
   date, time, comment = line.split(/\s/, 3)
   t = time.to_duration
   sum += t
