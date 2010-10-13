@@ -77,7 +77,7 @@ nnoremap <leader>q gqip
 " ? :-)
 nnoremap <leader>v V`]
 " edit VIMRC
-nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
+nnoremap <leader>ev <C-w>s<C-w>j:e $MYVIMRC<cr>
 inoremap jj <ESC>
 " F1 -> ESC
 inoremap <F1> <ESC>
@@ -87,7 +87,7 @@ vnoremap <F1> <ESC>
 nnoremap <F2> :NERDTree .<CR>
 
 " multiple buffers
-nnoremap <leader>ww <C-w>v<C-w>l
+nnoremap <leader>ww <C-w>v<C-w>j
 nnoremap <leader>w <C-w>s<C-w>l
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -114,4 +114,6 @@ inoremap <F5> :GundoToggle<CR>
 
 " ctags
 nnoremap <leader>g :tag
+inoremap <F12>:!tags -R .
+nnoremap <F12>:!tags -R .
 

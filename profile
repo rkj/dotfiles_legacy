@@ -15,6 +15,8 @@ alias bc='bc -l ~/.bc'
 alias port='sudo port'
 alias git=hub
 alias pg="ps aux | grep "
+alias hdv="hg diff | vim -"
+alias hdg="hg diff | gvim -"
 alias ka="killall -vm "
 # alias sudo='sudo -E'
 
@@ -32,7 +34,7 @@ alias git=hub
 function mhg() {
   for d in `find . -mindepth 2 -depth -name .hg | sort` `pwd`/.hg; do 
     mhgrepo=`dirname "$d"`
-    echo -e "\033[31m$repo\033[0m"
+    echo "$fg[red]$mhgrepo"
     (cd $mhgrepo && hg $*)
   done
 }
