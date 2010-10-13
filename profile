@@ -16,7 +16,7 @@ alias port='sudo port'
 alias git=hub
 alias pg="ps aux | grep "
 alias ka="killall -vm "
-alias sudo='sudo -E'
+# alias sudo='sudo -E'
 
 alias -g ...='../..'
 alias -g ....='../../..'
