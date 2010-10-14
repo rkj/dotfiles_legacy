@@ -34,7 +34,7 @@ alias git=hub
 function mhg() {
   for d in `find . -mindepth 2 -depth -name .hg | sort` `pwd`/.hg; do 
     mhgrepo=`dirname "$d"`
-    echo "$fg[red]$mhgrepo"
+    echo "$fg[red]$mhgrepo$fg[default]"
     (cd $mhgrepo && hg $*)
   done
 }
