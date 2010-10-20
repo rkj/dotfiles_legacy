@@ -28,7 +28,7 @@ set shiftwidth=2
 
 set termencoding=utf-8
 set encoding=utf-8
-set fileencodings=utf-8,latin2,cp1250
+set fileencodings=utf-8 ",latin2,cp1250
 
 set pastetoggle=<f7>
 
@@ -87,8 +87,8 @@ vnoremap <F1> <ESC>
 nnoremap <F2> :NERDTree .<CR>
 
 " multiple buffers
-nnoremap <leader>w <C-w>s<C-w>j
-" nnoremap <leader>ww <C-w>v<C-w>l
+nnoremap <leader>ww <C-w>s<C-w>j
+nnoremap <leader>w <C-w>v<C-w>l
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -102,7 +102,7 @@ inoremap <silent> <F3> <ESC>:YRShow<cr>
 let g:yankring_history_dir = '$HOME/.vim'
 
 " paste system clipboard
-nnoremap <leader>p "+gP
+nnoremap <leader>p "+gp
 
 nnoremap <silent> <F6> :make<cr>
 inoremap <silent> <F6> <ESC>:make<cr>
@@ -116,4 +116,6 @@ inoremap <F5> :GundoToggle<CR>
 nnoremap <leader>g :tag
 inoremap <F12>:!tags -R .
 nnoremap <F12>:!tags -R .
+
+nnoremap <leader>o :CommandT<CR>
 
