@@ -7,7 +7,6 @@ export LANG=en_US.UTF-8
 export LC_COLLATE=pl_PL.UTF-8
 export JAVA_OPTS="-Dfile.encoding=utf8"
 export PATH=$HOME/misc/bin:$PATH
-
 alias mv='mv -i'
 alias cp='cp -i'
 alias duu='du -s * .[^.]* 2>/dev/null | sort -n'
@@ -25,6 +24,7 @@ alias -g ....='../../..'
 alias -g .....='../../../..'
 alias -g G='| egrep'
 alias -g H='| head'
+alias v='l --color=none'
 
 alias pg="ps aux | grep "
 alias 7z='7z -t7z -m0=lzma -mx=9 -mfb=64 -md=32m -ms=on'
@@ -32,6 +32,7 @@ alias lzma='lzma -vk'
 alias git=hub
 
 function mhg() {
+  local mhgrepo
   for d in `find . -mindepth 2 -depth -name .hg | sort` `pwd`/.hg; do 
     mhgrepo=`dirname "$d"`
     echo "$fg[red]$mhgrepo$fg[default]"

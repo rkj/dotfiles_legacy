@@ -17,7 +17,7 @@ set relativenumber
 set undofile
 set backspace=indent,eol,start
 set whichwrap=b,s,h,l,<,>,[,]
-:set autowrite "before :make
+set autowrite "before :make
 
 set autoindent
 set smartindent
@@ -114,8 +114,8 @@ inoremap <F5> :GundoToggle<CR>
 
 " ctags
 nnoremap <leader>g :tag
-inoremap <F12>:!tags -R .
-nnoremap <F12>:!tags -R .
+inoremap <F9>:!tags -R .
+nnoremap <F9>:!tags -R .
 
 nnoremap <leader>o :CommandT<CR>
 
