@@ -25,6 +25,7 @@ function echo_free() {
 }
 
 function upgrades() {
+  if [[ -n `which pacman` ]]; then return; fi
   if [[ `pacman -Sup | grep "nothing to do" | wc -l` > 0 ]]; then
     return
   fi
