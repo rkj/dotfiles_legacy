@@ -14,8 +14,8 @@ alias bc='bc -l ~/.bc'
 alias port='sudo port'
 alias git=hub
 alias pg="ps aux | grep "
-alias hdv="hg diff | view -"
-alias hdg="hg diff | gview -"
+function hdv() { hg diff $* | view - }
+function hdg() { hg diff $* | gview - }
 alias ka="killall -vm "
 # alias sudo='sudo -E'
 
