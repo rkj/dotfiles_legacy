@@ -46,6 +46,11 @@ set ignorecase      "ignore case"
 set smartcase       "unless there's mixture of case"
 set magic           "magic characters in patterns"
 set showmatch
+
+if has("gui_macvim")
+  set fuoptions=maxvert,maxhorz "full screenoptions
+  au GUIEnter * set fullscreen
+endif
 nnoremap / /\v
 vnoremap / /\v
 nnoremap <leader><space> :noh<cr>
