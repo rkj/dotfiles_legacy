@@ -9,4 +9,6 @@ syntax: glob
 .un~
 tags
 .directory
+.gitignore
+.git
 
