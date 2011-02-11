@@ -34,7 +34,7 @@ class Duration
       c = (seconds / amount).floor
       sum unless c > 0
       ["#{str}#{c}#{name}", seconds - c * amount]
-    end.first
+    end.first.sub(/0s$/, "")
   end
 end
 

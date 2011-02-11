@@ -37,8 +37,10 @@ function upgrades() {
 cdpath=(. ~/Projects ~/Desktop ~/DropBox ~/misc)
 
 echo_free /
-echo_free /home
-echo_free /var
+if [[ -x /home/rkj ]]; then 
+  echo_free /home 
+  echo_free /var
+fi
 upgrades
 echo -ne "Today is "; date
 echo -ne "Uptime: "; uptime
