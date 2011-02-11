@@ -122,8 +122,12 @@ nnoremap <leader>g :tag
 inoremap <F9>:!tags -R .
 nnoremap <F9>:!tags -R .
 
+"CommandT
 nnoremap <leader>o :CommandT<CR>
-inoremap <F7> <ESC>:set pastetoggle<cr>i
+nnoremap <F8> :CommandTFlush<CR>
+inoremap <F8> <ESC>:CommandTFlush<CR>i
+
+"localvimrc
 set wildignore+=*.o,*.obj,*.git,tmp,log
 let g:localvimrc_ask=0
 
