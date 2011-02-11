@@ -7,6 +7,8 @@ export LANG=en_US.UTF-8
 export LC_COLLATE=pl_PL.UTF-8
 export JAVA_OPTS="-Dfile.encoding=utf8"
 export PATH=$HOME/misc/bin:$PATH
+export RUBYOPT=rubygems
+
 alias mv='mv -i'
 alias cp='cp -i'
 alias duu='du -s * .[^.]* 2>/dev/null | sort -n'
@@ -14,8 +16,8 @@ alias bc='bc -l ~/.bc'
 alias port='sudo port'
 alias git=hub
 alias pg="ps aux | grep "
-function hdv() { hg diff $* | view - }
-function hdg() { hg diff $* | gview - }
+function hdv() { hg diff $* | vim -R - }
+function hdg() { hg diff $* | gvim -R - }
 alias ka="killall -vm "
 # alias sudo='sudo -E'
 
