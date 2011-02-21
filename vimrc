@@ -25,6 +25,7 @@ set smarttab
 set expandtab
 set tabstop=2
 set shiftwidth=2
+set lazyredraw
 
 set termencoding=utf-8
 set encoding=utf-8
