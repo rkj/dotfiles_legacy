@@ -16,6 +16,7 @@ setopt SH_WORD_SPLIT
 setopt EXTENDED_HISTORY
 setopt nohup
 
+alias knife='nocorrect knife'
 
 function free_space() {
   df -h $1 | tail -1 | tr -s '\t ' '  ' | cut -f 4 -d' '
@@ -44,4 +45,5 @@ fi
 upgrades
 echo -ne "Today is "; date
 echo -ne "Uptime: "; uptime
+
 
