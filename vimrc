@@ -127,6 +127,7 @@ nnoremap <F9>:!tags -R .
 nnoremap <leader>o :CommandT<CR>
 nnoremap <F8> :CommandTFlush<CR>
 inoremap <F8> <ESC>:CommandTFlush<CR>i
+let g:CommandTAcceptSelectionSplitMap = '<C-d>'
 
 "localvimrc
 set wildignore+=*.o,*.obj,*.git,tmp,log
