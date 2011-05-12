@@ -14,7 +14,7 @@ alias cp='cp -i'
 alias duu='du -s * .[^.]* 2>/dev/null | sort -n'
 alias bc='bc -l ~/.bc'
 alias port='sudo port'
-alias git=hub
+# alias git=hub
 alias pg="ps aux | grep "
 function hdv() { hg diff $* | vim -R - }
 function hdg() { hg diff $* | gvim -R - }
@@ -31,7 +31,6 @@ alias v='l --color=none'
 alias pg="ps aux | grep "
 alias 7z='7z -t7z -m0=lzma -mx=9 -mfb=64 -md=32m -ms=on'
 alias lzma='lzma -vk'
-alias git=hub
 
 function mhg() {
   local mhgrepo
