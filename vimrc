@@ -7,7 +7,8 @@ set nocompatible
 set syntax=on
 syntax on
 "colorscheme desert
-colorscheme solarized
+"colorscheme solarized
+colorscheme desert
 let mapleader=','
 
 set visualbell

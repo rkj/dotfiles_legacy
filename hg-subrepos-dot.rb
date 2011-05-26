@@ -1,15 +1,25 @@
 #!/usr/bin/env ruby
 # encoding: utf-8
-
 require 'uri'
 require 'tempfile'
+require 'optparse'
+
+@@opts = {
+  :dir => ".",
+  :prefix => ""
+}
+(op = OptionParser.new { |opts|
+  opts.banner = "Usage: #{$PROGRAM_NAME} [options]"
+  opts.on("-d DIR", "--dir", "Directory to scan. Default: current.") { |o| @@opts[:dir] = o }
+  opts.on("-p PREFIX", "--prefix", "Prefix for repos without absolute path. Default: none.") { |o| @@opts[:prefix] = o }
+}).parse!
 
 def find_url(path)
   hgrc = File.join(path, ".hg", "hgrc")
   if File.exists? hgrc
     File.read(hgrc).match(/default\s*=\s*(.*)/)[1] rescue path
   else
-    path
+    @@opt[:prefix] + path
   end
 end
 
@@ -22,7 +32,7 @@ def extract_subrepos(sub, repo)
 end
 
 @@repos = {}
-Dir["**/.hg"].each do |repo|
+Dir["#{@@opts[:dir]}/**/.hg"].each do |repo|
   repo = File.dirname repo 
   url = find_url(repo)
   next if @@repos.has_key? url
@@ -48,7 +58,7 @@ io.puts "}"
 io.close
 
 #system "cat #{io.path}"
-res = "subrepos.png"
+res = "/tmp/subrepos.png"
 system %{dot #{io.path} -Tpng >"#{res}"}
 system "rm #{io.path}"
 system "open #{res}"
