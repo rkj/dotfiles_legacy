@@ -26,7 +26,7 @@ end
 def extract_subrepos(sub, repo)
   sub.each_line.map(&:strip).reject(&:empty?).map do |line|
     path, uri = *line.split(/\s*=\s*/).map { |u| URI.parse u.sub(/^\s*\[\w+\]\s*/, '') }
-    uri = find_url File.join(repo, path) unless uri.absolute?
+    uri = find_url File.join(repo.to_s, path.to_s) unless uri.absolute?
     [path, uri].map(&:to_s)
   end
 end
