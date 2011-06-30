@@ -1,0 +1,3 @@
+[submodule "plantuml-syntax.vim"]
+	path = vim/bundle/plantuml-syntax.vim
+	url = https://github.com/ukstv/plantuml-syntax.vim.git
