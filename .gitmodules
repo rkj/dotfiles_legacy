@@ -1,3 +1,9 @@
 [submodule "plantuml-syntax.vim"]
 	path = vim/bundle/plantuml-syntax.vim
 	url = https://github.com/ukstv/plantuml-syntax.vim.git
+[submodule "vim/bundle/vim-coffee-script"]
+	path = vim/bundle/vim-coffee-script
+	url = git://github.com/kchmck/vim-coffee-script.git
+[submodule "vim/bundle/supertab"]
+	path = vim/bundle/supertab
+	url = https://github.com/ervandew/supertab.git
