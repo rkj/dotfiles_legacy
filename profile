@@ -19,6 +19,7 @@ alias pg="ps aux | grep "
 function hdv() { hg diff $* | vim -R - }
 function hdg() { hg diff $* | gvim -R - }
 alias ka="killall -vm "
+alias be="bundle exec "
 # alias sudo='sudo -E'
 
 alias -g ...='../..'

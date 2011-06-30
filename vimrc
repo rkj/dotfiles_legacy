@@ -6,8 +6,8 @@ filetype plugin indent on
 set nocompatible
 set syntax=on
 syntax on
-"colorscheme desert
-colorscheme solarized
+colorscheme desert
+"colorscheme solarized
 let mapleader=','
 
 set visualbell
