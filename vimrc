@@ -133,6 +133,6 @@ inoremap <F8> <ESC>:CommandTFlush<CR>i
 let g:CommandTAcceptSelectionSplitMap = '<C-d>'
 
 "localvimrc
-set wildignore+=*.o,*.obj,*.git,tmp,log
+set wildignore+=*.o,*.obj,*.git,tmp,log,_site
 let g:localvimrc_ask=0
 
