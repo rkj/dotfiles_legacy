@@ -3,6 +3,8 @@ call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 filetype plugin indent on
 
+let g:LargeFile=10
+
 set nocompatible
 set syntax=on
 syntax on
