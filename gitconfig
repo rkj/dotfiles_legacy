@@ -1,13 +1,8 @@
-[github]
-	user = rkj
 [user]
 	name = Roman Kamyk
 	email = roman.kamyk@gmail.com
 [core]
 	excludesfile = ~/.gitignore
-[github]
-	user = rkj
-	token = 0588ab4345b3273446c3bb1a51a73346
 [color]
   ui = auto
   status = auto
