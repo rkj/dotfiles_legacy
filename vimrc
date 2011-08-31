@@ -136,3 +136,8 @@ let g:CommandTAcceptSelectionSplitMap = '<C-d>'
 set wildignore+=*.o,*.obj,*.git,tmp,log,_site
 let g:localvimrc_ask=0
 
+"backup
+set backup
+set backupdir=~/.vim/backup
+set directory=~/.vim/tmp
+
