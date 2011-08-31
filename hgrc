@@ -1,3 +1,7 @@
+[ui]
+ignore = ~/.hgignore
+commitsubrepos = no
+
 [extensions]
 hgext.churn    = 
 hgext.color    = 
