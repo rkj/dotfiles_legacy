@@ -3,19 +3,20 @@ ignore = ~/.hgignore
 commitsubrepos = no
 
 [extensions]
-hgext.churn    = 
-hgext.color    = 
-hgext.convert  = 
-hgext.graphlog = 
-hgext.mq       = 
-hgext.purge    = 
-hgext.rebase   = 
-hgext.record   = 
-hgk            = 
-progress       = 
-prompt         = ~/misc/hg-prompt/prompt.py
-review         = ~/misc/hg-review/review/
-share          = 
+hgattic         = ~/misc/hgattic/attic.py
+hgext.churn     = 
+hgext.color     = 
+hgext.convert   = 
+hgext.graphlog  = 
+hgext.mq        = 
+hgext.purge     = 
+hgext.rebase    = 
+hgext.record    = 
+hgk             = 
+progress        = 
+prompt          = ~/misc/hg-prompt/prompt.py
+review          = ~/misc/hg-review/review/
+share           = 
 # activity        = ~/misc/Hgactivity/activity.py
 # cutehg          = 
 # fetch           = 
@@ -42,7 +43,7 @@ cmd.opendiff = opendiff-w
 filemerge.executable = /usr/local/bin/opendiff-w
 filemerge.args = $local $other -ancestor $base -merge $output
 
-[rebase]
+[qrebase]
 backup=True
 
 [alias]

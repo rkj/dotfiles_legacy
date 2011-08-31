@@ -8,4 +8,6 @@ vim/*/*/*/tags
 vim/yankring_history_v2.txt
 vim/bundle/command-t/ruby/command-t/ext.bundle
 vim/.netrwhist
+vim/backup
+vim/tmp
 
