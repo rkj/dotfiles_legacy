@@ -3,7 +3,6 @@ ignore = ~/.hgignore
 commitsubrepos = no
 
 [extensions]
-hgattic         = ~/misc/hgattic/attic.py
 hgext.churn     = 
 hgext.color     = 
 hgext.convert   = 
