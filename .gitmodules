@@ -19,9 +19,6 @@
 [submodule "vim/bundle/vim-stylus"]
 	path = vim/bundle/vim-stylus
 	url = https://github.com/wavded/vim-stylus.git
-[submodule "/home/rkj/.vim/bundle/gundo"]
-	path = /home/rkj/.vim/bundle/gundo
-	url = http://github.com/sjl/gundo.vim.git
 [submodule "vim/bundle/nerdcommenter"]
 	path = vim/bundle/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter.git
