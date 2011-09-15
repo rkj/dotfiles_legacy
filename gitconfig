@@ -10,7 +10,8 @@
 [pager]
   color = true
 [alias]
-  st = status	
+  st = status -sb
+  lo = log --oneline --decorate
   ci = commit
   cam = commit -am
   co = checkout
