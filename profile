@@ -9,57 +9,18 @@ export JAVA_OPTS="-Dfile.encoding=utf8"
 export PATH=$HOME/misc/bin:$PATH
 export RUBYOPT=rubygems
 
-alias mv='mv -i'
+alias 7z='7z -t7z -m0=lzma -mx=9 -mfb=64 -md=32m -ms=on'
+alias bc='bc -l ~/.bc'
+alias be="bundle exec "
 alias cp='cp -i'
 alias duu='du -s * .[^.]* 2>/dev/null | sort -n'
-alias bc='bc -l ~/.bc'
-alias port='sudo port'
-# alias git=hub
-alias pg="ps aux | grep "
-function hdv() { hg diff $* | vim -R - }
-function hdg() { hg diff $* | gvim -R - }
 alias ka="killall -vm "
-alias be="bundle exec "
+alias lzma='lzma -vk'
+alias mv='mv -i'
+alias pg="ps aux | grep "
+alias pg="ps aux | grep "
+alias port='sudo port'
+alias v='l --color=none'
+# alias git=hub
 # alias sudo='sudo -E'
 
-alias -g ...='../..'
-alias -g ....='../../..'
-alias -g .....='../../../..'
-alias -g G='| egrep'
-alias -g H='| head'
-alias v='l --color=none'
-
-alias pg="ps aux | grep "
-alias 7z='7z -t7z -m0=lzma -mx=9 -mfb=64 -md=32m -ms=on'
-alias lzma='lzma -vk'
-
-function mhg() {
-  local mhgrepo
-  for d in `find . -mindepth 2 -depth -name .hg | sort` `pwd`/.hg; do 
-    mhgrepo=`dirname "$d"`
-    echo "$fg[red]$mhgrepo$fg[default]"
-    (cd $mhgrepo && hg $*)
-  done
-}
-
-function chuck() {
-  ps aux | grep $1 | tr -s '\t' ' ' | cut -f2 -d' ' | xargs kill $2 
-}
-
-trash() {
-  for file in "$@"; do # Cycle through each argument for deletion
-    if [ -e "$file" ]; then
-      if [ ! -d ~/.Trash/"${file:t}" ]; then # Target exists and can be moved to Trash safely
-        mv "$file" ~/.Trash
-      else # Target exists and conflicts with target in Trash
-        i=1
-        while [ -e ~/.Trash/"${file:t}.$i" ]; do
-          i=$(($i + 1)) # Increment target name until there is no longer a conflict
-        done
-        mv "$file" ~/.Trash/"${file:t}.$i" # Move to the Trash with non-conflicting name
-      fi
-    else # Target doesn't exist, return error
-      echo "trash: $file: No such file or directory";
-    fi
-  done
-}
