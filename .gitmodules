@@ -8,6 +8,7 @@
 	path = vim/bundle/supertab
 	url = https://github.com/ervandew/supertab.git
 [submodule "vim/bundle/snipmate.vim"]
+  ignore = untracked
 	path = vim/bundle/snipmate.vim
 	url = git://github.com/msanders/snipmate.vim.git
 [submodule "vim/bundle/vim-rails"]
