@@ -36,3 +36,6 @@
 [submodule "vim/bundle/command-t"]
 	path = vim/bundle/command-t
 	url = git://git.wincent.com/command-t.git
+[submodule "oh-my-zsh"]
+	path = oh-my-zsh
+	url = https://github.com/rkj/oh-my-zsh
