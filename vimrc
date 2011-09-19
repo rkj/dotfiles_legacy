@@ -140,4 +140,8 @@ let g:localvimrc_ask=0
 set backup
 set backupdir=~/.vim/backup
 set directory=~/.vim/tmp
+set undodir=~/.vim/tmp
+
+"vimdiff
+set diffopt=filler,iwhite,vertical
 
