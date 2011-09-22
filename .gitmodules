@@ -42,6 +42,7 @@
 [submodule "vim/bundle/vim-taglist"]
 	path = vim/bundle/vim-taglist
 	url = https://github.com/vim-scripts/taglist.vim.git
+  ignore = untracked
 [submodule "vim/bundle/vim-ruby-debugger"]
 	path = vim/bundle/vim-ruby-debugger
 	url = git://github.com/astashov/vim-ruby-debugger.git
