@@ -160,15 +160,3 @@ set diffopt=filler,iwhite,vertical
 vnoremap <Tab>    >gv
 vnoremap <S-Tab>  <gv
 
-" ruby-debugger
-map <Leader>db  :call g:RubyDebugger.toggle_breakpoint()<CR>
-map <Leader>dv  :call g:RubyDebugger.open_variables()<CR>
-map <Leader>dm  :call g:RubyDebugger.open_breakpoints()<CR>
-map <Leader>dt  :call g:RubyDebugger.open_frames()<CR>
-map <Leader>ds  :call g:RubyDebugger.step()<CR>
-map <Leader>df  :call g:RubyDebugger.finish()<CR>
-map <Leader>dn  :call g:RubyDebugger.next()<CR>
-map <Leader>dc  :call g:RubyDebugger.continue()<CR>
-map <Leader>de  :call g:RubyDebugger.exit()<CR>
-map <Leader>dd  :call g:RubyDebugger.remove_breakpoints()<CR>
-
