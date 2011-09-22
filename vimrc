@@ -116,6 +116,10 @@ nnoremap <silent> <F3> :YRShow<cr>
 inoremap <silent> <F3> <ESC>:YRShow<cr>
 let g:yankring_history_dir = '$HOME/.vim'
 
+" Taglist
+nnoremap <silent> <F4> :TlistToggle<CR>
+inoremap <silent> <F4> <ESC>:TlistToggle<CR>
+
 " paste system clipboard
 nnoremap <leader>p "+gp
 
