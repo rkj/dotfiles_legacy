@@ -30,6 +30,12 @@ set tabstop=2
 set shiftwidth=2
 set lazyredraw
 
+set mouse=a
+set virtualedit=block
+" Select-mode
+set selectmode=key,mouse
+set keymodel=startsel,stopsel
+
 set termencoding=utf-8
 set encoding=utf-8
 set fileencodings=utf-8 ",latin2,cp1250
@@ -144,4 +150,8 @@ set undodir=~/.vim/tmp
 
 "vimdiff
 set diffopt=filler,iwhite,vertical
+
+" indenting on tab
+vnoremap <Tab>    >gv
+vnoremap <S-Tab>  <gv
 
