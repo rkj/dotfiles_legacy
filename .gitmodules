@@ -35,7 +35,7 @@
   ignore = untracked
 [submodule "vim/bundle/command-t"]
 	path = vim/bundle/command-t
-	url = git://git.wincent.com/command-t.git
+	url = https://github.com/wincent/Command-T.git
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
 	url = https://github.com/rkj/oh-my-zsh
