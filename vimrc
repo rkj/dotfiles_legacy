@@ -1,4 +1,5 @@
 filetype off
+runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 filetype plugin indent on
@@ -158,4 +159,16 @@ set diffopt=filler,iwhite,vertical
 " indenting on tab
 vnoremap <Tab>    >gv
 vnoremap <S-Tab>  <gv
+
+" ruby-debugger
+map <Leader>db  :call g:RubyDebugger.toggle_breakpoint()<CR>
+map <Leader>dv  :call g:RubyDebugger.open_variables()<CR>
+map <Leader>dm  :call g:RubyDebugger.open_breakpoints()<CR>
+map <Leader>dt  :call g:RubyDebugger.open_frames()<CR>
+map <Leader>ds  :call g:RubyDebugger.step()<CR>
+map <Leader>df  :call g:RubyDebugger.finish()<CR>
+map <Leader>dn  :call g:RubyDebugger.next()<CR>
+map <Leader>dc  :call g:RubyDebugger.continue()<CR>
+map <Leader>de  :call g:RubyDebugger.exit()<CR>
+map <Leader>dd  :call g:RubyDebugger.remove_breakpoints()<CR>
 
