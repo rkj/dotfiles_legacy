@@ -39,3 +39,6 @@
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
 	url = https://github.com/rkj/oh-my-zsh
+[submodule "vim/bundle/vim-taglist"]
+	path = vim/bundle/vim-taglist
+	url = https://github.com/vim-scripts/taglist.vim.git
