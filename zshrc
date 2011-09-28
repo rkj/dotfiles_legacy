@@ -17,6 +17,8 @@ setopt EXTENDED_HISTORY
 setopt nohup
 
 alias knife='nocorrect knife'
+alias qri='noglob qri'
+alias yri='noglob yri'
 
 alias -g ...='../..'
 alias -g ....='../../..'
