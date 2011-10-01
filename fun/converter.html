@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <script src="http://jashkenas.github.com/coffee-script/extras/coffee-script.js"></script>
+    <script type="text/coffeescript" src="./converter.coffee"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+    <style>
+      #points {
+        font-size: 2em;
+        font-weight: bold;
+      }
+      #msg {
+        font-size: 1.5em;
+        font-weight: bold;
+      }
+      #msg .good {
+        background-color: #8E8;
+      }
+      #msg .bad {
+        background-color: #E88;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="msg"></div>
+    <div id="points"></div>
+    <div id="systems">
+      Konwertuj liczby z <span id="from"></span>
+      na <span id="to"></span>
+      <button id="change_system">Zmień systemy</button>
+      Maksymalna liczba:
+      <input id="max_number" type="text" value="64" />
+    </div>
+    <div id="tests">
+      <span id="number"></span>
+      =
+      <input type="text" id="result" placeholder="wynik"/>
+      <input type="submit" id="test" placeholder="wynik" value="Sprawdź"/>
+  </body>
+</html>
