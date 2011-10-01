@@ -68,8 +68,6 @@ nnoremap <leader><space> :noh<cr>
 
 " Matching parenthesis
 set matchtime=10
-nnoremap <tab> %
-vnoremap <tab> %
 
 " long lines
 set wrap
