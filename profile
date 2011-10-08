@@ -7,6 +7,7 @@ export LANG=en_US.UTF-8
 export LC_COLLATE=pl_PL.UTF-8
 export JAVA_OPTS="-Dfile.encoding=utf8"
 export PATH=$HOME/misc/bin:$PATH
+export LESS="FRX"
 export RUBYOPT=rubygems
 
 alias 7z='7z -t7z -m0=lzma -mx=9 -mfb=64 -md=32m -ms=on'
