@@ -16,7 +16,7 @@ done;
 
 if [[ ! -e $HOME/.zshrc ]]; then
   echo '[[ -e $HOME/.profile ]] && source $HOME/.profile' > $HOME/.zshrc
-  echo "[[ -e $root/.profile ]] && source $root/.profile" >> $HOME/.zshrc
+  echo "source $root/profile"                             >> $HOME/.zshrc
   echo "export ZSH=$root/oh-my-zsh"                       >> $HOME/.zshrc
   echo 'export ZSH_THEME="rkj-repos"'                     >> $HOME/.zshrc
   echo 'source $ZSH/oh-my-zsh.sh'                         >> $HOME/.zshrc
