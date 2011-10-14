@@ -158,3 +158,7 @@ set diffopt=filler,iwhite,vertical
 vnoremap <Tab>    >gv
 vnoremap <S-Tab>  <gv
 
+" run Ruby & Python
+autocmd BufRead *.py set makeprg=python2\ %
+autocmd BufRead *.rb set makeprg=ruby\ %
+

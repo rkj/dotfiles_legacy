@@ -6,7 +6,7 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LC_COLLATE=pl_PL.UTF-8
 export JAVA_OPTS="-Dfile.encoding=utf8"
-export PATH=`dirname "$PWD"/"$0"`/bin:$PATH
+export PATH=`dirname "$0"`/bin:$PATH
 export LESS="FRX"
 export RUBYOPT=rubygems
 
